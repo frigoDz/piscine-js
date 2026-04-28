@@ -4,7 +4,7 @@
 //   str: 'some text',
 //   log: console.log,
 // }
-const get = (key) => console.log(sourceObject[key])
+const get = (key) => sourceObject[key]
 const set = (key, val) => sourceObject[key] = val
 // console.log(get('bool'))
 // console.log(set('str', 'less text'))
