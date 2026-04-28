@@ -4,11 +4,7 @@ const yell = (str) => str.toUpperCase()
 const whisper = (str) => "*" + str.toLowerCase() + "*"
 function capitalize(str) {
   let st = str.toLowerCase()
-  let slice = st.split(" ")
-  for (let i = 0; i < slice.length; i++) {
-    slice[i] = slice[i][0].toUpperCase() + slice[i].slice(1)
-  }
-  return slice.join(" ")
+  return st[0].toUpperCase() + st.slice(1)
 }
 
 // console.log(words("hello world"))
