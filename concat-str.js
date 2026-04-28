@@ -1,2 +1,2 @@
-const concatStr = (a, b) => a + b
-// console.log(concatStr("hello ", "world"))
+const concatStr = (a, b) => String(a) + String(b)
+// console.log(concatStr(1, 2))
