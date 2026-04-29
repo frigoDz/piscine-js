@@ -1,8 +1,8 @@
 function isPositive(num){
-  if (num < 0) {
-    return false
+  if (num > 0) {
+    return true
   }
-  return true
+  return false
 }
 function abs(num){
   if (num < 0) {
