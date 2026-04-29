@@ -42,13 +42,23 @@ function divide(a, b) {
 
 function modulo(a, b) {
   if (b === 0) return NaN
-  if (a < 0) a = -a 
-  if (b < 0) b = -b
+  let sign = false
+  if (a < 0) {
+    sign = true
+    a = -a 
+  }
+  if (b < 0) {
+    sign = !sign
+    b = -b
+  }
   while(a > 0 && a >= b) {
     a = a - b 
+  }
+  if (sign === true) {
+    a = -a
   }
   return a
 }
 // console.log(multiply(-3, 2))
 // console.log(divide(-10, 0))
-// console.log(modulo(10, 0))
+// console.log(modulo(-123, 22))
