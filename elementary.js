@@ -5,10 +5,9 @@ function multiply(a, b) {
     sign = true
     a = -a 
   }
-  if (b < 0 && !sign) {
-    sign = true
+  if (b < 0) {
+    sign = !sign
     b = -b
-
   }
   while(a > 0) {
     res += b
@@ -20,17 +19,18 @@ function multiply(a, b) {
   return res
 }
 function divide(a, b) {
+  if (b === 0) return Infinity 
   let res = 0 
   let sign = false
   if (a < 0) {
     sign = true
     a = -a 
   }
-  if (b < 0 && !sign) {
-    sign = true
+  if (b < 0) {
+    sign = !sign
     b = -b
   }
-  while(a >= b) {
+   while(a >= b) {
     a = a - b 
     res++
   }
@@ -41,6 +41,7 @@ function divide(a, b) {
 }
 
 function modulo(a, b) {
+  if (b === 0) return NaN
   if (a < 0) a = -a 
   if (b < 0) b = -b
   while(a > 0 && a >= b) {
@@ -48,6 +49,6 @@ function modulo(a, b) {
   }
   return a
 }
-// console.log(multiply(-3, 7))
-// console.log(divide(-10, -2))
-// console.log(modulo(10, 2))
+// console.log(multiply(-3, 2))
+// console.log(divide(-10, 0))
+// console.log(modulo(10, 0))
