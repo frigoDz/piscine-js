@@ -47,10 +47,7 @@ function modulo(a, b) {
     sign = true
     a = -a 
   }
-  if (b < 0) {
-    sign = !sign
-    b = -b
-  }
+  if (b < 0) b = -b
   while(a > 0 && a >= b) {
     a = a - b 
   }
@@ -61,4 +58,4 @@ function modulo(a, b) {
 }
 // console.log(multiply(-3, 2))
 // console.log(divide(-10, 0))
-// console.log(modulo(-123, 22))
+// console.log(modulo(123, -22))
