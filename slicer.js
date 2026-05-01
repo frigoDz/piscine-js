@@ -1,4 +1,4 @@
-function slice(value, starindx, endindx = value.length - 1) {
+function slice(value, starindx, endindx = value.length) {
   let res = ""
   let ress = []
   if (starindx < 0) {
@@ -23,4 +23,4 @@ function slice(value, starindx, endindx = value.length - 1) {
   }
 }
 
-// console.log(slice(["hello", "just", "wanna", "say", "hi"],0,2))
+// console.log(slice('abcdef', 2))
