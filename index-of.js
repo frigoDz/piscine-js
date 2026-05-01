@@ -1,6 +1,6 @@
-function indexOf(arr, str, indx = 0) {
+function indexOf(arr, val, indx = 0) {
   while (indx < arr.length) {
-    if (str === arr[indx]) {
+    if (val === arr[indx]) {
       return indx
     }
     indx++
@@ -8,9 +8,9 @@ function indexOf(arr, str, indx = 0) {
   return -1
 }
 
-function lastIndexOf(arr, str, indx = arr.length) {
+function lastIndexOf(arr, val, indx = arr.length) {
   while (indx >= 0) {
-    if (str === arr[indx]) {
+    if (val === arr[indx]) {
       return indx
     }
     indx--
@@ -18,16 +18,16 @@ function lastIndexOf(arr, str, indx = arr.length) {
   return -1
 }
 
-function includes(arr, str, indx = 0) {
+function includes(arr, val, indx = 0) {
   while (indx < arr.length) {
-    if (str === arr[indx]) {
+    if (val === arr[indx]) {
       return true
     }
-    return false
+    indx++
   }
+  return false
 } 
 
 
-
 // let arr = ["hello", "world", "just", "want", "just", "to"]
-// console.log(lastIndexOf(arr,"world", 0))
+// console.log(includes([1, 2, 3, 4, 5, 4, 3, 2, 1], 2))
