@@ -8,13 +8,12 @@ function indexOf(arr, str, indx = 0) {
   return -1
 }
 
-function lastIndexOf(arr, str) {
-  let i = arr.length -1
-  while (i >= 0) {
-    if (str === arr[i]) {
-      return i
+function lastIndexOf(arr, str, indx = arr.length) {
+  while (indx >= 0) {
+    if (str === arr[indx]) {
+      return indx
     }
-    i--
+    indx--
   }
   return -1
 }
@@ -31,4 +30,4 @@ function includes(arr, str, indx = 0) {
 
 
 // let arr = ["hello", "world", "just", "want", "just", "to"]
-// console.log(includes(arr,"hello",0))
+// console.log(lastIndexOf(arr,"world", 0))
