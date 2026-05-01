@@ -8,7 +8,7 @@ function slice(value, starindx, endindx = value.length - 1) {
     endindx = value.length + endindx
   }
 
-  while(starindx <= endindx) {
+  while(starindx < endindx) {
     if (typeof(value) == "object") {
       ress.push(value[starindx])
     } else {
@@ -23,4 +23,4 @@ function slice(value, starindx, endindx = value.length - 1) {
   }
 }
 
-// console.log(slice(["hello", "just", "wanna", "say", "hi"],-4,-1))
+// console.log(slice(["hello", "just", "wanna", "say", "hi"],0,2))
