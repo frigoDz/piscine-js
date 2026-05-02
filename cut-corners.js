@@ -1,6 +1,6 @@
 function round(nbr) {
-  if (n < 0) {
-    return trunc(n - 0.5)
+  if (nbr < 0) {
+    return trunc(nbr - 0.5)
   } else {
     return trunc(nbr + 0.5)
   }
@@ -46,4 +46,4 @@ function trunc(nbr) {
   return tracker
 }
 
-// console.log(ceil(13.33))
+// console.log(round(13.6))
