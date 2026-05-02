@@ -3,12 +3,12 @@ function reverse(arr) {
   for (let i = arr.length-1; i >= 0; i--) {
     res.push(arr[i])
   }
-  return res
+  return typeof arr === 'string' ? res.join('') : res
 }
 
 
 // const array = ["one", "two", "three"]
 // const reversed = array.reverse()
 // console.log("reversed:", reversed)
-// console.log("array:", array)
+// console.log(reverse("hello world"))
 
