@@ -8,7 +8,9 @@ function join(arr, sub = "") {
   return result.join("")
 }
 
+
 function split(str, sub){
+  if (sub === "") return [...str]
   let arr = []
   let y = 0
   for (let i = 0; i < str.length; i++) {
