@@ -1,9 +1,13 @@
 function join(arr, sub = "") {
   let str = ""
+  let first = true
   for (const value of arr) {
-    str += (value + sub)
+    if (!first) str += sub
+    first = false
+    str += (value === undefined || value === null ? "" : value)
   }
-  return sub.length > 0 ? str.slice(0, -sub.length) : str
+
+  return str
 }
 
 function split(str, sub){
