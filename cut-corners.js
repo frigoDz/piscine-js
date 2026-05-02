@@ -6,44 +6,35 @@ function round(nbr) {
   }
 }
 function ceil(nbr) {
-  if (Number.isInteger(nbr)) {
-    return nbr
-  } else if (nbr < 0) {
-    return trunc(nbr)
-  } else {
-    return trunc(nbr+1)
-  }
+  let tmp = trunc(nbr)
+  if (nbr === tmp) return nbr
+  return nbr > 0 ? tmp + 1 : tmp
 }
 function floor(nbr){
-  if (Number.isInteger(nbr)) {
-    return nbr
-  } else if (nbr < 0) {
-    return trunc(nbr-1)
-  }
-  return trunc(nbr)
+  let tmp = trunc(nbr)
+  return nbr < tmp ? tmp - 1 : tmp
 }
 function trunc(nbr) {
   let sign = false
-  let tracker = 1
+  let tracker = 0
   if (nbr < 0) {
     nbr = -nbr
     sign = true
   }
-  while (tracker < nbr -1) {
-    if (tracker + 1000000000 < nbr-1) {
+  while (tracker + 1 <= nbr) {
+    if (tracker + 1000000000 < nbr) {
       tracker += 1000000000
-    } else if (tracker + 100000 < nbr-1) {
+    } else if (tracker + 100000 < nbr) {
       tracker += 100000
-    } else if (tracker + 10000 < nbr-1) {
+    } else if (tracker + 10000 < nbr) {
       tracker += 10000
-    } else if (tracker + 10 < nbr-1) {
+    } else if (tracker + 10 < nbr) {
       tracker += 10
     } else {
       tracker += 1
     }
   }
-  if (sign) return -tracker
-  return tracker
+  return sign ? -tracker : tracker
 }
 
 // console.log(round(13.6))
