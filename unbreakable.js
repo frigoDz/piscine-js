@@ -1,11 +1,11 @@
 function join(arr, sub = "") {
-  let result = []
+  let result = ""
   for (let i = 0; i < arr.length; i++) {
-    if (i > 0) result.push(sub)
+    if (i > 0) result += sub
     let value = arr[i]
-    result.push(value === undefined || value === null ? "" : String(value))
+    result += (value === undefined || value === null ? "" : String(value))
   }
-  return result.join("")
+  return result
 }
 
 
