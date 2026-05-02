@@ -1,6 +1,7 @@
+const vowels = /[auioe]/gi
 function vowelDots(str) {
-  const regex = /[AaEeIiOoUu]/g
-  return str.replace(regex, '$&.')
+  return str.replace(vowels, '$&.')
 }
 // const string = "hi huy"
 // console.log(vowelDots(string))
+
