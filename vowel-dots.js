@@ -1,6 +1,7 @@
-const vowels = "/[a,e,i,o,u]/g"
+const vowels = /[auioe]/gi
 function vowelDots(str) {
-    return str.replace(vowels, "$&.")
+  return str.replace(vowels, '$&.')
 }
-//str = "hahahahaha"
-//console.log(vowelDots(str))
+// const string = "hi huy"
+// console.log(vowelDots(string))
+

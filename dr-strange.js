@@ -11,7 +11,7 @@ function addWeek(date) {
   return days[ind]
 }
 function timeTravel({date, hour, minute, second}) {
-  newDate = new Date(date)
+  const newDate = new Date(date)
   newDate.setHours(hour)
   newDate.setMinutes(minute)
   newDate.setSeconds(second)
