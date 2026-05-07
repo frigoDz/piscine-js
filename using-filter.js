@@ -29,7 +29,7 @@ function filter1DistinctVowel(arr) {
     let tmp = []
     for (let i = 0; i < word.length; i++) {
       if ('aeiouAEIOU'.includes(word[i])) {
-        tmp.push(word[i])
+        tmp.push(word[i].toLowerCase())
       }
     }
     let check = new Set(tmp)
