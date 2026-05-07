@@ -23,9 +23,9 @@ function upperCasingStates(arr) {
   })
 }
 // console.log(upperCasingStates(arr2))
-// const arr3 = ['68°F', '59°F', '25°F']
+// const arr3 = ['68°F', '59°F', '23   °F']
 function fahrenheitToCelsius(arr) {
-  return arr.map((item) => Math.floor((Number(item.slice(0,-2)) - 32) * 5/9) + "°C")
+  return arr.map((item) => Math.floor((Number(item.replaceAll(" ", "").slice(0,-2)) - 32) * 5/9) + "°C")
 }
 // console.log(fahrenheitToCelsius(arr3))
 // const arr4 = ([
@@ -49,7 +49,7 @@ function trimTemp(arr) {
 // ])
 function  tempForecasts(arr){
    return arr.map((item) =>  
-     Math.round((Number(item.temperature.replaceAll(" ", "").slice(0,-2)) - 32) * 5/9) + "°"
+     Math.floor((Number(item.temperature.replaceAll(" ", "").slice(0,-2)) - 32) * 5/9) + "°"
  + "Celsius in " + item.city + ", " + item.state.split(" ").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ")) 
 }
 // console.log(tempForecasts(arr5))
