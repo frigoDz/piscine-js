@@ -19,8 +19,8 @@ function firstDayWeek(num, str) {
   day1.setDate(day1.getDate() + weekDay)
   const day = String(day1.getDate()).padStart(2, "0")
   const month = String(day1.getMonth() + 1).padStart(2, "0")
-  const year = day1.getFullYear()
+  const year = String(day1.getFullYear()).padStart(4, "0")
 
   return day + "-" + month + "-" + year
 }
-// console.log(firstDayWeek(2,"2025"))
+// console.log(firstDayWeek(2,"0008"))
