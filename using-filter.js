@@ -18,9 +18,7 @@ function filter5Vowels(arr) {
         count++
       }
     }
-    if(count >= 5) {
-      return word
-    }
+    return count >= 5
   })
   return res
 }
@@ -34,10 +32,8 @@ function filter1DistinctVowel(arr) {
         tmp.push(word[i])
       }
     }
-    check = new Set(tmp)
-    if(tmp.length !== 0 && check.size == 1) {
-      return word
-    }
+    let check = new Set(tmp)
+    return tmp.length !== 0 && check.size == 1
   })
   return res
 
