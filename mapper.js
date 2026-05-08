@@ -1,14 +1,14 @@
 function map(arr,func) {
   const res = []
   for(let i = 0; i < arr.length; i++) {
-    res.push(func(arr[i]))
+    res.push(func(arr[i], i, arr))
   }
   return res
 }
 function flatMap(arr,func) {
   const res = []
   for(let i = 0; i < arr.length; i++) {
-    const mapped = (func(arr[i]))
+    const mapped = (func(arr[i], i, arr))
     if (Array.isArray(mapped)) {
       for (let j = 0; j < mapped.length; j++) {
         res.push(mapped[j])
