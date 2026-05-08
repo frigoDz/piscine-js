@@ -1,7 +1,7 @@
 function filter(arr, func) {
   const res = []
   for(let i = 0; i < arr.length; i++) {
-    if (func(arr[i])) {
+    if (func(arr[i], i, arr)) {
       res.push(arr[i])
     }
   }
@@ -10,7 +10,7 @@ function filter(arr, func) {
 function reject(arr, func) {
   const res = []
   for(let i = 0; i < arr.length; i++) {
-    if (!func(arr[i])) {
+    if (!func(arr[i], i, arr)) {
       res.push(arr[i])
     }
   }
@@ -19,7 +19,7 @@ function reject(arr, func) {
 function partition(arr, func) {
   const res = [[], []]
   for(let i = 0; i < arr.length; i++) {
-    if (func(arr[i])) {
+    if (func(arr[i], i, arr)) {
       res[0].push(arr[i])
     } else {
       res[1].push(arr[i])
