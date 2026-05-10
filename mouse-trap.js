@@ -26,8 +26,8 @@ export const moveCircle = () => {
       lastOne.style.background = "var(--purple)"
       return
     }
-    lastOne.style.left = event.clientX + "px"
-    lastOne.style.top = event.clientY + "px"
+    lastOne.style.left = event.clientX - 25 + "px"
+    lastOne.style.top = event.clientY - 25 + "px"
   })
 }
 
