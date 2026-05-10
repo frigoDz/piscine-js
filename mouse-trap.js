@@ -26,8 +26,14 @@ export const moveCircle = () => {
       e.clientY < rect.bottom - r
     if (inside) hasEntered = true
     last.style.background = hasEntered ? "var(--purple)" : "white"
-    last.style.left = e.clientX - 25 + "px"
-    last.style.top = e.clientY - 25 + "px"
+    let x = e.clientX
+    let y = e.clientY
+    if (hasEntered) {
+      x = Math.min(Math.max(x, rect.left + r), rect.right - r)
+      y = Math.min(Math.max(y, rect.top + r), rect.bottom - r)
+    }
+    last.style.left = x - 25 + "px"
+    last.style.top = y - 25 + "px"
   })
 }
 export const setBox = () => {
