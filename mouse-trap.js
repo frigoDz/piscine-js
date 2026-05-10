@@ -1,38 +1,33 @@
-let inside = false
-let trapped = false
+let hasEntered = false
 export const createCircle = () => {
-  document.addEventListener("click", mou => {
-    trapped = false
+  document.addEventListener("click", (e) => {
     let div = document.createElement("div")
     div.classList.add("circle")
     div.style.background = "white"
     div.style.position = "absolute"
-    div.style.left = mou.clientX - 25 + "px"
-    div.style.top = mou.clientY - 25 + "px"
+    div.style.left = e.clientX - 25 + "px"
+    div.style.top = e.clientY - 25 + "px"
     document.body.append(div)
   })
 }
 export const moveCircle = () => {
-  addEventListener("mousemove", (event) => {
-    let all = document.querySelectorAll(".circle")
-    let lastOne = all[all.length - 1]
-    if (!lastOne) return
+  addEventListener("mousemove", (e) => {
+    let circles = document.querySelectorAll(".circle")
+    let last = circles[circles.length - 1]
+    if (!last) return
     let box = document.querySelector(".box")
     if (!box) return
-    let boxRect = box.getBoundingClientRect()
-    let circleRect = lastOne.getBoundingClientRect()
-    inside =
-      circleRect.left > boxRect.left &&
-      circleRect.right < boxRect.right &&
-      circleRect.top > boxRect.top &&
-      circleRect.bottom < boxRect.bottom
-    if (inside) trapped = true
-    if (trapped) {
-      lastOne.style.background = "var(--purple)"
-      return
-    }
-    lastOne.style.left = event.clientX - 25 + "px"
-    lastOne.style.top = event.clientY - 25 + "px"
+    let rect = box.getBoundingClientRect()
+    const r = 25
+    let inside =
+      e.clientX > rect.left + r &&
+      e.clientX < rect.right - r &&
+      e.clientY > rect.top + r &&
+      e.clientY < rect.bottom - r
+    if (inside) hasEntered = true
+    last.style.background = hasEntered ? "var(--purple)" : "white"
+    last.style.left = e.clientX - 25 + "px"
+    last.style.top = e.clientY - 25 + "px"
   })
 }
 export const setBox = () => {
