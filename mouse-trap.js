@@ -4,8 +4,8 @@ export const createCircle = () => {
     div.classList.add("circle")
     div.style.background = "white"
     div.style.position = "absolute"
-    div.style.left = mou.clientX + "px"
-    div.style.top = mou.clientY + "px"
+    div.style.left = mou.clientX - 25 + "px"
+    div.style.top = mou.clientY - 25 + "px"
     document.body.append(div)
   })
 }
