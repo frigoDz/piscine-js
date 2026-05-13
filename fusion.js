@@ -1,8 +1,8 @@
 function fusion(obj1,obj2) {
   const se = new Set()
   const res = {}
-  for(key of Object.keys(obj1)) se.add(key)
-  for(key of Object.keys(obj2)) se.add(key)
+  for(const key of Object.keys(obj1)) se.add(key)
+  for(const key of Object.keys(obj2)) se.add(key)
   for(const key of se) {
     const v1 = obj1[key]
     const v2 = obj2[key]
