@@ -8,7 +8,7 @@ function pick(obj, arg) {
   }
   return res
 }
-function pick(obj, arg) {
+function omit(obj, arg) {
   const res = {}
   if(!Array.isArray(arg)) arg = [arg]
   for(const [key,value] of Object.entries(obj)) {
