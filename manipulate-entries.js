@@ -8,7 +8,7 @@
 //   sugar:   { calories: 387, protein: 0,     carbs: 100,   sugar: 100, fiber: 0,   fat: 0     },
 //   orange:  { calories: 49,  protein: 0.9,   carbs: 13,    sugar: 9,   fiber: 0.2, fat: 0.1   },
 // }
-//
+
 function filterEntries(obj, func) {
   const entries = Object.entries(obj)
   const filteredEntries = entries.filter(func)
@@ -24,11 +24,12 @@ function reduceEntries(obj, func, init) {
   return entries.reduce(func, init)
 }
 function totalCalories(cart) {
-  return reduceEntries(cart, function(total, [itemName, grams]) {
+  const result = reduceEntries(cart, function(total, [itemName, grams]) {
     const caloriesPer100g = nutritionDB[itemName].calories
     const itemCalories = caloriesPer100g * grams / 100
     return total + itemCalories
   }, 0)
+  return Number(result.toFixed(1))
 }
 function lowCarbs(cart) {
   return filterEntries(cart, function([itemName, grams]) {
@@ -40,18 +41,16 @@ function lowCarbs(cart) {
 function cartTotal(cart) {
   const result = {}
   for (const [itemName, grams] of Object.entries(cart)) {
-    const nutritionPer100g = nutritionDB[itemName]
+    const nutritionFacts = nutritionDB[itemName]
     const scaledNutrition = {}
-    for (const [nutrientName, valuePer100g] of Object.entries(nutritionPer100g)) {
+    for (const [nutrientName, valuePer100g] of Object.entries(nutritionFacts)) {
       const scaledValue = valuePer100g * grams / 100
-      const roundedValue = Math.round(scaledValue * 10) / 10
-      scaledNutrition[nutrientName] = roundedValue
+      scaledNutrition[nutrientName] = Number(scaledValue.toFixed(3))
     }
     result[itemName] = scaledNutrition
   }
   return result
 }
-//
 // const groceriesCart = { orange: 500, oil: 20, sugar: 480 }
 //
 // console.log('Total calories:')
