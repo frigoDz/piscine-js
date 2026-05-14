@@ -36,11 +36,12 @@ function reduceScore(obj, init = 0) {
     return total
   })(obj, init)
 }
-function mapAverage(obj) {
+function mapAverage(personnel) {
   return mapCurry(function([name, stats]) {
     const averageScore = (stats.pilotingScore + stats.shootingScore) / 2
-    return [name, { averageScore: averageScore }]
-  })(obj)
+    const updatedPerson = { ...stats, averageScore: averageScore }
+    return [name, updatedPerson]
+  })(personnel)
 }
 // const personnel = {
 //   lukeSkywalker: { id: 5,  pilotingScore: 98, shootingScore: 56, isForceUser: true  },
