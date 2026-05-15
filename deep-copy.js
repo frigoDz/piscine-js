@@ -1,24 +1,39 @@
-function deepCopy(value) {
-  if (Array.isArray(value)) {
-    const newArr = []
-    for(let val of value) {
-      newArr.push(deepCopy(val))
+function deepCopy(obj) {
+  const res = {}
+  /*if (obj instanceof RegExp) {
+    return new RegExp(obj)
+  }else */
+  if (!Array.isArray(obj)){
+    for (const [key,value] of Object.entries(obj)) {
+      res[key] = value 
+      deepCopy(obj[key])
     }
-    return newArr
-  } else if (value instanceof RegExp) {
-    return new RegExp(value)
-  } else if (typeof value === 'object' && value !== null) {
-    const obj = {}
-    for(let key of Object.keys(value)) {
-      obj[key] = deepCopy(value[key])
+    return res
+  }else if(Array.isArray(obj)) {
+    for(let i = 0; i < obj.length;i++) {
+      //if (!res[i]) res[i] = {}
+      //if (Array.isArray(res[i])) res[i] = deepCopy(res[i]) 
+      res[i] = obj[i]
+      if (Array.isArray(obj[i])) deepCopy(obj[i])
     }
-    return obj
-  } else {
-    return value
+    return res
+    /*Object.entries(obj).forEach(([key,value]) => {
+      res[key] = deepCopy(value)
+    })
+    return res*/
+  }else {
+    return res = obj
   }
 }
-// const obj = { a: 1, b: 2 }
-// const copy = deepCopy(obj)
-// copy.a = 99
-// console.log(obj.a) 
-// console.log(copy.a)
+/*const arr = ["hello", ["test","soft"]]
+const copy = deepCopy(arr)
+console.log(copy)
+console.log(arr)
+const obj = {hi : 12, g : {h : 25}}
+const coppy = deepCopy(obj)
+
+console.log(coppy)
+copy["g"] = {u : 22}
+console.log(coppy)
+console.log(obj)
+*/
