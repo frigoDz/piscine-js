@@ -6,7 +6,7 @@ function deepCopy(obj) {
   if (!Array.isArray(obj)){
     for (const [key,value] of Object.entries(obj)) {
       res[key] = value 
-      deepCopy(obj[key])
+      if (typeof obj[key] == 'object') deepCopy(obj[key])
     }
     return res
   }else if(Array.isArray(obj)) {
@@ -29,11 +29,9 @@ function deepCopy(obj) {
 const copy = deepCopy(arr)
 console.log(copy)
 console.log(arr)
-const obj = {hi : 12, g : {h : 25}}
+const obj = { user: 'mika', age: 37 }
 const coppy = deepCopy(obj)
 
 console.log(coppy)
-copy["g"] = {u : 22}
 console.log(coppy)
-console.log(obj)
-*/
+console.log(obj)*/
