@@ -1,15 +1,8 @@
 function deepCopy(obj) {
-  const res = {}
-  const resarr = []
   if (obj instanceof RegExp) {
     return new RegExp(obj)
-  }else if (!Array.isArray(obj)){
-    for (const [key,value] of Object.entries(obj)) {
-      res[key] = value 
-      if (typeof obj[key] == 'object') deepCopy(obj[key])
-    }
-    return res
   }else if(Array.isArray(obj)) {
+    const resarr = []
     for(let i = 0; i < obj.length;i++) {
       //if (!res[i]) res[i] = {}
       //if (Array.isArray(res[i])) res[i] = deepCopy(res[i]) 
@@ -20,6 +13,13 @@ function deepCopy(obj) {
       res[key] = deepCopy(value)
     })
     return res*/
+  }else if (typeof obj === 'object' && obj !== null && !Array.isArray(obj)){
+    const res = {}
+    for (const [key,value] of Object.entries(obj)) {
+      res[key] = value 
+      if (typeof obj[key] == 'object') deepCopy(res[key])
+    }
+    return res
   }else {
     return res = obj
   }
