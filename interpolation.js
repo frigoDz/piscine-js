@@ -2,7 +2,7 @@ function interpolation({step, start, end, callback, duration}) {
   const gap = (end - start) / step
   const delay = duration / step
 
-  for (let i = 1; i < step; i++) {
+  for (let i = 0; i < step; i++) {
     setTimeout(() => {
       callback([
         start + gap * i,
