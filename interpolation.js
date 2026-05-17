@@ -5,10 +5,10 @@ function interpolation({ step, start, end, callback, duration }) {
   for (let i = 0; i < step; i++) {
     setTimeout(() => {
       callback([
-        start + gap * i,
+        Number((start + gap * i).toFixed(2)),
         delay * (i + 1)
       ])
     }, delay * (i + 1))
   }
 }
-// interpolation({step: 5, start: 0, end: 1, duration: 10, callback: console.log})
+interpolation({step: 5, start: 0, end: 1, duration: 10, callback: console.log})
