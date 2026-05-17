@@ -12,8 +12,8 @@ function opThrottle(fn, t, options = {}) {
   let lastCall = 0
   let id = null
   let lastArgs
-  const leading = options.leading !== false
-  const trailing = options.trailing !== false
+  const leading = options.leading || false
+  const trailing = options.trailing || false
   return function (...args) {
     const now = Date.now()
     if (!lastCall && !leading) {
