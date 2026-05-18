@@ -5,4 +5,4 @@ const res = arg.split(" ").map(word => {
   const second = word.slice(first.length , word.length)
   return second + first
 }).join(" ")
-await writeFile("verydisco-foreever.txt", res)
+await writeFile("verydisco-forever.txt", res)
