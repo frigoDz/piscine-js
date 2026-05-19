@@ -6,10 +6,10 @@ let guests = []
 for (const file of files) {
   const content = await readFile(join(dir, file), "utf-8")
   const data = JSON.parse(content)
-  if (data.answer === "YES") {
+  if (data.answer.toLowerCase() === "yes") {
     let [name] = file.split(".")
-    let firstname = name.split("_")[1]
-    let lastname = name.split("_")[0]
+    let firstname = name.split("_")[0] 
+    let lastname = name.split("_")[1]  
     guests.push(lastname + " " + firstname)
   }
 }
