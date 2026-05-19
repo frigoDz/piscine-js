@@ -24,20 +24,19 @@ const server = createServer((req, res) => {
     return res.end(JSON.stringify({ error: "server failed" }))
   }
   const name = req.url.slice(1)
-  const bits = []
-  req.on("data", (chunk) => bits.push(chunk))
-  req.on("end", async () => {
-    try {
-      const body = Buffer.concat(bits).toString()
-      const fpath = join("guests", `${name}.json`)
-      await writeFile(fpath, body)
+  try {
+    const body = req.headers["body"]
+    const fpath = join("guests", `${name}.json`)
+    writeFile(fpath, body).then(() => {
       res.statusCode = 200
       res.end(body)
-    } catch (err) {
+    }).catch(() => {
       res.statusCode = 500
       res.end(JSON.stringify({ error: "server failed" }))
-    }
-  })
+    })
+  } catch (err) {
+    res.statusCode = 500
+    res.end(JSON.stringify({ error: "server failed" }))
+  }
 })
-
 server.listen(5000, () => console.log("Listening on port 5000"))
