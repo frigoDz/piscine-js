@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "node:fs/promises"
+import { readFile, writeFile, readdir } from "node:fs/promises"
 import { join } from "node:path"
 const dir = process.argv[2]
 const files = await readdir(dir)
