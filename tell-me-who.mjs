@@ -6,4 +6,4 @@ let formated = files.map((file) => {
   return name.split("_")[1]+" " + name.split("_")[0]
 })
 let res = formated.sort()
-res.forEach((name,index) => console.log(index + 1 + " " +name))
+res.forEach((name,index) => console.log(index + 1 + ". " +name))
