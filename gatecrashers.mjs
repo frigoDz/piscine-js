@@ -27,16 +27,12 @@ const server = createServer((req, res) => {
   try {
     const body = req.headers["body"]
     const fpath = join("guests", `${name}.json`)
-    writeFile(fpath, body).then(() => {
-      res.statusCode = 200
-      res.end(body)
-    }).catch(() => {
-      res.statusCode = 500
-      res.end(JSON.stringify({ error: "server failed" }))
-    })
+    await writeFile(fpath, body)
+    res.statusCode = 200
+    res.end(body)
   } catch (err) {
     res.statusCode = 500
-    res.end(JSON.stringify({ error: "server failed" }))
+    res.end(JSON.stringify({ error: err.message }))
   }
 })
 server.listen(5000, () => console.log("Listening on port 5000"))
